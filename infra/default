@@ -3,17 +3,16 @@ server {
     listen 80;
     server_name 172.21.137.21;
 
-    location /cats/ {
-        # Эта команда определяет, куда нужно перенаправить запрос.
-        proxy_pass http://127.0.0.1:8000;
+    location /api/ {
+        proxy_pass http://127.0.0.1:8080;
     }
 
     location /media/ {
-	alias /var/www/kittygram/media
+	alias /var/www/kittygram/media;
     }
 
     location /admin/ {
-        proxy_pass http://127.0.0.1:8000;
+        proxy_pass http://127.0.0.1:8080;
     }    
 
     location / {
@@ -21,5 +20,23 @@ server {
         index  index.html index.htm;
         try_files $uri /index.html;
     }
+}
 
+server {
+    listen 80;
+    server_name 172.21.137.21;
+    
+    location /api/ {
+        proxy_pass http://127.0.0.1:8000;
+    }
+
+    location /admin/ {
+        proxy_pass http://127.0.0.1:8000;
+    }
+
+    location / {
+        root   /var/www/taski;
+        index  index.html index.htm;
+        try_files $uri /index.html;
+    }
 }

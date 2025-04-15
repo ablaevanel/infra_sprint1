@@ -22,7 +22,7 @@ WorkingDirectory=/home/ablaevanel/infra_sprint1/backend/
 # Команду, которую вы запускали руками, теперь будет запускать systemd:
 # /home/<имя-пользователя-в-системе>/
 # <директория-с-проектом>/<путь-до-gunicorn-в-виртуальном-окружении> --bind 0.0.0.0:8000 backend.wsgi
-ExecStart=/home/ablaevanel/infra_sprint1/backend/venv/bin/gunicorn --bind 0.0.0.0:8000 kittygram_backend.wsgi
+ExecStart=/home/ablaevanel/infra_sprint1/backend/venv/bin/gunicorn --bind 0.0.0.0:8080 kittygram_backend.wsgi
 
 [Install]
 # В этом параметре указывается вариант запуска процесса.
